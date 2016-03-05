@@ -1,0 +1,19 @@
+{
+  "name": "bodhi",
+  "description": "Bodhi: the console Bitpay Insight blockchain explorer.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "blessed": "~0.1",
+    "blessed-contrib": "~3.5",
+    "request-promise": "~2.0",
+    "nunjucks": "*",
+    "colors": "~1.1",
+    "sprintf-js": "~1.0",
+    "socket.io-client": "*",
+    "winston": "~2.2"
+  },
+  "scripts": {
+    "start": "node bodhi.js"
+  }
+}
