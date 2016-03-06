@@ -57,5 +57,11 @@ Insight.prototype.getAddress = function (address) {
 }
 
 Insight.prototype.getTransactions = function (address) {
-  return request(this._api + 'api/txs?pageLength=10&address=' + address).then(JSON.parse)
+  const url = this._api + 'api/txs/?address=' + address
+  return request(url).then(JSON.parse)
+}
+
+Insight.prototype.getTransactionsFromTo = function (address, from, to) {
+  const url = this._api + 'api/addrs/' + address + '/txs?from=' + from + '&to=' + to
+  return request(url).then(JSON.parse)
 }
