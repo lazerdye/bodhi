@@ -61,10 +61,12 @@ const transactions = grid.set(0, 10, 8, 2, contrib.log, {
 const statusLog = grid.set(8, 0, 4, 12, contrib.log, {
   label: 'Log'
 })
-const info = grid.set(1, 0, 7, 10, contrib.markdown, {
+const box = grid.set(1, 0, 7, 10, blessed.box, {})
+const info = contrib.markdown({
   scrollable: true,
   scrollbar: true
 })
+box.append(info)
 
 const addressView = new address.AddressView(_insight, info, env, {})
 const blockView = new blocks.BlockView(_insight, info, env, {})
@@ -104,9 +106,11 @@ screen.key('pagedown', function (ch, key) {
   screen.render()
 })
 
-screen.key(['b'], showBlocks)
+screen.key('b', function () {
+  return showBlocks()
+})
 
-screen.key(['a'], function () {
+screen.key('a', function () {
   form.reset()
   input.setValue('address ')
   input.focus()
